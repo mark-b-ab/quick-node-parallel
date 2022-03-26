@@ -8,6 +8,7 @@ if (!process.argv[2]) {
 
 const web3 = makeWeb3(process.argv[2]);
 const parallelism = process.argv[3] || 10;
+const blocksToQuery = chunk(range(100_000, 110_000), parallelism);
 
 export async function getBlock(number) {
   const [block, traces, receipts] = await Promise.all([
@@ -21,8 +22,6 @@ export async function getBlock(number) {
 
   return block;
 }
-
-const blocksToQuery = chunk(range(100_000, 110_000), parallelism);
 
 for (const blocks of blocksToQuery) {
   await measureFn(
