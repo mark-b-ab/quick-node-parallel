@@ -1,0 +1,10 @@
+{
+  "name": "quick-node-parallel",
+  "version": "1.0.0",
+  "module": "index.mjs",
+  "license": "MIT",
+  "dependencies": {
+    "web3": "^1.7.1",
+    "web3-core-helpers": "^1.7.1"
+  }
+}
